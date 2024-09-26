@@ -41,8 +41,9 @@ jobs:
       uses: actions/github-script@v6
       if: always() # Run this step even if previous steps fail
       with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const status = job.status === 'success' ? 'succeeded' : 'failed'
+          const status = ${{ job.status }} === 'success' ? 'succeeded' : 'failed'
           github.rest.repos.createCommitStatus({
             owner: context.repo.owner,
             repo: context.repo.repo,
