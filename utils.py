@@ -1,4 +1,8 @@
 def add(x,y):
+    """
+    This function adds two numbers
+    """
+    
     return (x+y)
 
 def sub(x,y):
